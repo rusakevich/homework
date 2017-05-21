@@ -1,10 +1,10 @@
-#Вершина A
+#Vertex A
 x1 = float(input('X1 = '))
 y1 = float(input('Y1 = '))
-#Вершина B
+#Vertex B
 x2 = float(input('X2 = '))
 y2 = float(input('Y2 = '))
-#Вершина C
+#Vertex C
 x3 = float(input('X3 = '))
 y3 = float(input('Y3 = '))
 
