@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>10a1ecfe-637c-4b9c-bf34-91fc3367361c</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>homework.py</StartupFile>
+    <StartupFile>task2.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,7 +21,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="homework.py" />
+    <Compile Include="task2.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="task1.py" />
+    <Compile Include="task3.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
