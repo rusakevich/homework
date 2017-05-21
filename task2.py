@@ -5,7 +5,7 @@ Cons = float(input('Введите количество расходуемого
 A = Det
 i = 0
 print('Моющее средство после каждого мытья:')
-while i <= Plate and A - Cons > 0:
+while i <= Plate and A - Cons >= 0:
     print(A-Cons, end = ' | ')
     A -= Cons
     i += i
