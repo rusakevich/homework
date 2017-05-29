@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS planner (
+ id INTEGER PRIMARY KEY AUTOINCREMENT,
+ task_name TEXT NOT NULL,
+ task_description TEXT NOT NULL,
+ task_date DATE NOT NULL,
+ task_status TEXT NOT NULL
+)
