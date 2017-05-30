@@ -1,14 +1,19 @@
+from storage import *
+
 def menu_1():
-    return 'Список задач'
+    print('Список задач\n')
+    print(find_all(connect()))
 def menu_2():
-    return 'Добавьте задачу'
+    print ('Добавьте задачу\n')
+    add_task_name(connect())
 def menu_3():
-    return 'Отредактируйте задачу'
+    print ('Отредактируйте задачу\n')
+    add_upd_task(connect())
 def menu_4():
-    return 'Завершите задачу'
+    print ('Завершите задачу\n')
 def menu_5():
-    return 'Начните задачу сначала'
+    print ('Начните задачу сначала\n')
 def menu_6():
-    return 'Выход'
+    print ('Выход')
 
 menu_all = {1:menu_1, 2:menu_2, 3:menu_3, 4:menu_4, 5:menu_5, 6:menu_6}
