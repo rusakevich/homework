@@ -62,13 +62,13 @@ def sql_select_all(conn):
     '''вывод всего списка задач'''
     with conn:
         cursor = conn.execute(SQL_SELECT_ALL)
-        for row in cursor.fetchall():
+        cash = cursor.fetchall()
+        for row in cash:
             for i in row:
                 print('|{0:15}|'.format(i), end='')
             print('') 
         print('')
-        cursor = conn.execute(SQL_SELECT_ALL)
-        if  cursor.fetchall() == []:
+        if  cash == []:
             print('Список задач пуст\n')
 
 
@@ -95,13 +95,13 @@ def sql_select(conn):
 
             dat = date(int(ye), int(mon), int(d))
         cursor = conn.execute(SQL_SELECT, [dat,])
-        for row in cursor.fetchall():
+        cash = cursor.fetchall()
+        for row in cash:
             for i in row:
                 print('|{0:15}|'.format(i), end='')
             print('') 
         print('')
-        cursor = conn.execute(SQL_SELECT, [dat,])
-        if  cursor.fetchall() == []:
+        if  cash == []:
             print('Список задач на {} пуст\n'.format(dat))
 
 
