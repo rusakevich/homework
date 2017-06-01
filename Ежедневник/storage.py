@@ -37,7 +37,7 @@ WHERE id = ?
 
 SQL_DEL_ALL = '''DELETE FROM planner'''
 
-SQL_SELECT_ID = '''SELECT id FROM planner WHERE id>0'''
+SQL_SELECT_ID = '''SELECT id FROM planner WHERE id=?'''
 
 ######################
 ######################
@@ -67,6 +67,10 @@ def sql_select_all(conn):
                 print('|{0:15}|'.format(i), end='')
             print('') 
         print('')
+        cursor = conn.execute(SQL_SELECT_ALL)
+        if  cursor.fetchall() == []:
+            print('Список задач пуст\n')
+
 
 
 #######################
@@ -96,6 +100,9 @@ def sql_select(conn):
                 print('|{0:15}|'.format(i), end='')
             print('') 
         print('')
+        cursor = conn.execute(SQL_SELECT, [dat,])
+        if  cursor.fetchall() == []:
+            print('Список задач на {} пуст\n'.format(dat))
 
 
 ########################
@@ -106,16 +113,13 @@ def add_task_name(conn):
         task_desk = input('Введите описание задачи: ')
 
         ye = input('Введите год: ')
-        while not ye.isdigit() or int(ye) > date.today().year + 100 or int(ye) < date.today().year:
-            ye = input('Введите корректный год: ')
+        ye = date_test(ye)
 
         mon = input('Введите месяц: ')
-        while not mon.isdigit() or int(mon) == 0 or date(int(ye), int(mon), calendar.monthrange(int(ye), int(mon))[1]) < date(int(ye), date.today().month, date.today().day):
-           mon = input('Введите корректный месяц: ')
+        mon = date_test(ye, mon)
 
         d = input('Введите день: ')
-        while not d.isdigit() or int(d) == 0 or int(d) > calendar.monthrange(int(ye), int(mon))[1] or date(int(ye), int(mon), int(d)) < date(date.today().year, date.today().month, date.today().day):
-           d = input('Введите корректный день: ')
+        d = date_test(ye, mon, d)
 
         task_da = date(int(ye), int(mon), int(d))
         conn.execute(SQL_ADD_TASK_NAME,[task, task_desk, task_da])
@@ -135,16 +139,13 @@ def add_upd_task(conn):
         task_desk_upd = input('Введите новое описание задачи: ')
 
         ye = input('Введите год: ')
-        while not ye.isdigit() or int(ye) > date.today().year + 100 or int(ye) < date.today().year:
-            ye = input('Введите корректный год: ')
-
+        ye = date_test(ye)
+        
         mon = input('Введите месяц: ')
-        while not mon.isdigit() or int(mon) == 0 or date(int(ye), int(mon), calendar.monthrange(int(ye), int(mon))[1]) < date(int(ye), date.today().month, date.today().day):
-           mon = input('Введите корректный месяц: ')
+        mon = date_test(ye, mon)
 
         d = input('Введите день: ')
-        while not d.isdigit() or int(d) == 0 or int(d) > calendar.monthrange(int(ye), int(mon))[1] or date(int(ye), int(mon), int(d)) < date(date.today().year, date.today().month, date.today().day):
-           d = input('Введите корректный день: ')
+        d = date_test(ye, mon, d)
 
         task_da_upd = date(int(ye), int(mon), int(d))
 
@@ -185,15 +186,36 @@ def del_all(conn):
         conn.execute(SQL_DEL_ALL)
     return
 
+
 #########################
 def sql_select_id(conn, identificator):
     '''определение входит ли id в таблицу'''
     with conn:
-        cursor = conn.execute(SQL_SELECT_ID)
-    c=[]
-    for i in cursor.fetchall():
-        c.append(i[0])
+        cursor = conn.execute(SQL_SELECT_ID, [identificator,])
     if identificator.isdigit():
-        return 1 if int(identificator) in c else 0 
+        return 1 if cursor.fetchone() else 0
     else:
         return 0
+
+
+#########################
+def date_test(*args):
+    '''проверка вводимых дат на корректность'''
+    if len(args) == 1:
+        ye = args[0]
+        while not ye.isdigit() or int(ye) > date.today().year + 100 or int(ye) < date.today().year:
+            ye = input('Введите корректный год: ')
+        return ye
+    elif len(args) == 2:
+        ye = args[0]
+        mon = args[1]        
+        while not mon.isdigit() or int(mon) == 0 or int(mon) > 12 or date(int(ye), int(mon), calendar.monthrange(int(ye), int(mon))[1]) < date(int(ye), date.today().month, date.today().day):
+            mon = input('Введите корректный месяц: ')
+        return mon
+    else:
+        ye = args[0]
+        mon = args[1] 
+        d = args[2]
+        while not d.isdigit() or int(d) == 0 or int(d) > calendar.monthrange(int(ye), int(mon))[1] or date(int(ye), int(mon), int(d)) < date(date.today().year, date.today().month, date.today().day):
+            d = input('Введите корректный день: ')
+        return d
