@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>10a1ecfe-637c-4b9c-bf34-91fc3367361c</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Ежедневник\handler.py</StartupFile>
+    <StartupFile>task11_password.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,6 +21,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="task10_fibonacci.py" />
+    <Compile Include="task11_password.py" />
+    <Compile Include="task12_pause.py" />
     <Compile Include="Ежедневник\handler.py">
       <SubType>Code</SubType>
     </Compile>
