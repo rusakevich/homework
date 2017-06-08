@@ -1,15 +1,15 @@
 def fibonacci(d):
     n = 0
     k = 1
-    yield str(k)
+    yield k
     i = 0
     while i < d-1:
         n += k
-        yield str(n)
+        yield n
         i += 2
         if i < d:
             k += n
-            yield str(k)
+            yield k
 
-
-print(' '.join(list(fibonacci(int(input('Введите количество элементов ряда Фибоначчи: '))))))
+f = (str(i) for i in fibonacci(int(input('Введите количество элементов ряда Фибоначчи: '))))
+print(' '.join(list(f)))

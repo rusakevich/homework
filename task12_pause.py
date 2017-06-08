@@ -1,3 +1,4 @@
+from random import randint
 from time import sleep
 
 def pause(sec):
@@ -7,6 +8,6 @@ def pause(sec):
                 print('Ждём {} секунд(ы)...'.format(sec))
                 sleep(sec)
                 print('Прошло {} секунд(ы), результат выполненной функции:'.format(sec))
-                print(''.join(list(func(*args,**kwargs))))
+                return func(*args,**kwargs)
             return wrapper
     return decorator
