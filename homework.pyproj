@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>10a1ecfe-637c-4b9c-bf34-91fc3367361c</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>task11_password.py</StartupFile>
+    <StartupFile>ООП\task13.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -24,6 +24,9 @@
     <Compile Include="task10_fibonacci.py" />
     <Compile Include="task11_password.py" />
     <Compile Include="task12_pause.py" />
+    <Compile Include="ООП\task13.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Ежедневник\handler.py">
       <SubType>Code</SubType>
     </Compile>
@@ -48,6 +51,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="ООП\" />
     <Folder Include="Ежедневник\" />
   </ItemGroup>
   <ItemGroup>
