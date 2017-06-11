@@ -50,12 +50,11 @@ class Pupil(Human):
 class Course(object):
     '''Класс курсы - получает информацию об учителе, может выводить кол-во обучающихся учеников'''
     def __init__(self, coursename, teacher):
+        self.teacher = teacher
         self.coursename = coursename
-        self.teachername = '{} {}'.format(teacher.lastname, teacher.firstname)
-        self.amountpupils = teacher.amountpupils
     def printinfo(self):
-        print('Курсы {} ведет {}'.format(self.coursename, self.teachername))
-        print('На курсах по {} учится {} ученик(ов)'.format(self.coursename, self.amountpupils))
+        print('Курсы {} ведет {} {}'.format(self.coursename, self.teacher.lastname, self.teacher.firstname))
+        print('На курсах по {} учится {} ученик(ов)'.format(self.coursename, self.teacher.amountpupils))
 
 
 
