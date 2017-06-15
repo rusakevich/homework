@@ -61,9 +61,9 @@ class Identifier(object):
     def set(self, source):
         self.a, self.formatfile = path.splitext(source)
         self.d = {
-            '.txt': metod_txt,
-            '.format_1': metod_2,
-            '.format_2': metod_3
+            '.txt': self.metod_txt,
+            '.format_1': self.metod_2,
+            '.format_2': self.metod_3
              }
 
 
@@ -82,7 +82,7 @@ class Reader(Identifier):
     def metod_2(self):
         '''Читаем для format_2 параметры из source'''
     def readfile(self):
-        self.self.d.get(self.formatfile)()
+        self.d.get(self.formatfile)()
 
     def get(self):
         return self.params
@@ -103,7 +103,7 @@ class Writer(Identifier):
     def metod_2(self):
         '''Читаем для format_2 параметры в source'''
     def writefile(self):
-        self.self.d.get(self.formatfile)()
+        self.d.get(self.formatfile)()
 
 
 
