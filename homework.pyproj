@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>10a1ecfe-637c-4b9c-bf34-91fc3367361c</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>ООП\task13.py</StartupFile>
+    <StartupFile>ООП\task14.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -47,6 +47,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Ежедневник\storage.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ООП\task14.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
