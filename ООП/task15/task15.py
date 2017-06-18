@@ -44,18 +44,6 @@ class ParamHandler(metaclass=ABCMeta):
     
 class PickleParamHandler(ParamHandler):    
     def read(self):
-        with open(self.source, 'r') as f:
-            self.params = json.load(f)
-            return self.params
-    def write(self):       
-        with open(self.source, 'w') as f:
-            json.dump(self.params, f)
-
-
-
-
-class JsonParamHandler(ParamHandler):    
-    def read(self):
         with open(self.source, 'rb') as f:
             self.params = pickle.load(f)
             return self.params
@@ -63,6 +51,20 @@ class JsonParamHandler(ParamHandler):
         with open(self.source, 'wb') as f:
             pickle.dump(self.params, f)
 
+
+
+
+class JsonParamHandler(ParamHandler):    
+    def read(self):
+        with open(self.source, 'r') as f:
+            self.params = json.load(f)
+            return self.params
+    def write(self):       
+        with open(self.source, 'w') as f:
+            json.dump(self.params, f)
+
+class ParamHandlerException(Exception):
+    pass
 
 
 ParamHandler.add_type('pickle', PickleParamHandler)    
@@ -74,7 +76,7 @@ config_pickle.write()
 print(config_pickle.read())
 
 
-ParamHandler.add_type('json', PickleParamHandler)   
+ParamHandler.add_type('json', JsonParamHandler)   
 config_json = ParamHandler.get_instance('C:/Users/rusak/Documents/Visual Studio 2017/Projects/homework/ООП/task15/users.json')
 config_json.add_param('key1', 'json1') 
 config_json.add_param('key2', 'json2') 
