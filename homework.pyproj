@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>10a1ecfe-637c-4b9c-bf34-91fc3367361c</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>ООП\task14.py</StartupFile>
+    <StartupFile>ООП\task15\task15.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -52,13 +52,23 @@
     <Compile Include="ООП\task14.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ООП\task15\task15.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ООП\" />
     <Folder Include="Ежедневник\" />
+    <Folder Include="ООП\task15\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Ежедневник\schema.sql">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="ООП\task15\users.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="ООП\task15\users.pickle">
       <SubType>Code</SubType>
     </Content>
   </ItemGroup>
