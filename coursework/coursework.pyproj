@@ -2,9 +2,9 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>d0c5dcb5-152c-4610-b903-8b9bfacb8103</ProjectGuid>
+    <ProjectGuid>ce53fa8d-fd74-4a38-936c-51bc176be027</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>coursework.py</StartupFile>
+    <StartupFile>main.pyw</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,7 +21,25 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="coursework.py" />
+    <Compile Include="base.py" />
+    <Compile Include="main.pyw" />
+    <Compile Include="window.py" />
+    <Compile Include="window1.py" />
+    <Compile Include="window2.py" />
+    <Compile Include="window3.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="window4.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="window5.py" />
+    <Compile Include="window6.py" />
+    <Compile Include="window7.py" />
+    <Compile Include="window8.py" />
+    <Compile Include="window9.py" />
+    <Compile Include="__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
