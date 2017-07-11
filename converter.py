@@ -80,7 +80,7 @@ class CurrencyConverter(QMainWindow):
     def updateConvertBtnStatus(self):
         valuerub = self.scrAmount.value()
         valueusd = self.rezultAmount.value()
-        self.convertBtn.setEnabled(bool(valuerub) or bool(valueusd))
+        self.convertBtn.setEnabled(bool(valuerub) ^ bool(valueusd))
 if __name__ == '__main__':
 
     app = QApplication(sys.argv)
