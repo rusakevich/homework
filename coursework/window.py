@@ -10,13 +10,20 @@ from window7 import Window7
 from window8 import Window8
 from window9 import Window9
 
-class Window(QtWidgets.QWidget):
-    def __init__(self, parent=None):
-        super().__init__(parent)
+class Window(QtWidgets.QMainWindow):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.tunning()
     def tunning(self):
         self.setGeometry(200, 200, 300, 300)
         self.setWindowTitle('База сотрудников')
+        self.spacer1 = QtWidgets.QSpacerItem(0, 0, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.spacer2 = QtWidgets.QSpacerItem(0, 0, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.spacer3 = QtWidgets.QSpacerItem(0, 0, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.spacer4 = QtWidgets.QSpacerItem(0, 0, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.w = QtWidgets.QWidget(self)
+        self.gbox = QtWidgets.QGridLayout(self.w)
+        self.setCentralWidget(self.w)
         self.setStyleSheet('background-color: lightblue')
         self.setWindowIcon(QtGui.QIcon('Логотип ЗХ'))
         self.btnGet = QtWidgets.QPushButton('Добавить\nнового сотрудника')
@@ -46,23 +53,23 @@ class Window(QtWidgets.QWidget):
         self.btnExit = QtWidgets.QPushButton('Выход')
         self.btnExit.setFixedHeight(100)
         self.btnExit.setStyleSheet('font-size: 25pt;font-family: Courier;background-color: rgb(0,170,210)')
-        self.gbox = QtWidgets.QGridLayout()
         self.btnCsv = QtWidgets.QPushButton('Выгрузить\nданные в .csv')
         self.btnCsv.setFixedHeight(100)
         self.btnCsv.setStyleSheet('font-size: 25pt;font-family: Courier;background-color: rgb(0,170,210)')
-
-
-        self.gbox.addWidget(self.btnGet,0,0)
-        self.gbox.addWidget(self.btnEdit,0,1)
-        self.gbox.addWidget(self.btnDel,0,2,1,2)
-        self.gbox.addWidget(self.btnAll,1,0)
-        self.gbox.addWidget(self.btnVac,1,1)
-        self.gbox.addWidget(self.btnBirth,1,2,1,2)
-        self.gbox.addWidget(self.btnStat,2,0)
-        self.gbox.addWidget(self.btn,2,1)
-        self.gbox.addWidget(self.btnExit,2,3,1,1)
-        self.gbox.addWidget(self.btnCsv,2,2,1,1)
-        self.setLayout(self.gbox)
+        self.gbox.addItem(self.spacer1,0,0,1,4)
+        self.gbox.addItem(self.spacer3,1,0,3,1)
+        self.gbox.addWidget(self.btnGet,1,1)
+        self.gbox.addWidget(self.btnEdit,1,2)
+        self.gbox.addWidget(self.btnDel,1,3,1,2)
+        self.gbox.addWidget(self.btnAll,2,1)
+        self.gbox.addWidget(self.btnVac,2,2)
+        self.gbox.addWidget(self.btnBirth,2,3,1,2)
+        self.gbox.addWidget(self.btnStat,3,1)
+        self.gbox.addWidget(self.btn,3,2)
+        self.gbox.addWidget(self.btnExit,3,4,1,1)
+        self.gbox.addWidget(self.btnCsv,3,3,1,1)
+        self.gbox.addItem(self.spacer4,1,5,3,1)
+        self.gbox.addItem(self.spacer2,4,0,1,4)
         self.btnGet.clicked.connect(self.openWin1)
         self.btnEdit.clicked.connect(self.openWin2)
         self.btnDel.clicked.connect(self.openWin3)
